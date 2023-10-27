@@ -1,0 +1,36 @@
+{
+    "version": 2,
+    "configurePresets": [
+        {
+            "name": "ClangHIP",
+            "displayName": "Clang HIP configuration",
+            "description": "HIP",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_TOOLCHAIN_FILE": "",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_CXX_COMPILER":"C:/rocm/5.5/bin/clang++.exe",
+                "CMAKE_HIP_COMPILER":"C:/rocm/5.5/bin/clang++.exe"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "HIP-Debug",
+            "configurePreset": "ClangHIP",
+            "configuration": "Debug",
+            "verbose": false
+        },
+        {
+            "name": "HIP-Release",
+            "configurePreset": "ClangHIP",
+            "configuration": "Release",
+            "verbose": true
+
+        }
+       
+
+    ]
+}
